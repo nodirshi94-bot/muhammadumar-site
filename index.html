@@ -54,6 +54,20 @@
             border-bottom: 2px solid #e8e8e8;
             padding-bottom: 10px;
         }
+        /* Asosiy video uslubi */
+        .main-video-wrapper {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+            background: #000;
+        }
+        .main-video-wrapper video {
+            width: 100%;
+            display: block;
+        }
         /* Galereya setkasi */
         .media-grid {
             display: grid;
@@ -70,47 +84,24 @@
             align-items: center;
             justify-content: center;
         }
-        .media-item img, .media-item video {
+        .media-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-        .media-item video {
-            aspect-ratio: 16/9;
         }
         .wishes-text {
             font-size: 1.1rem;
             line-height: 1.8;
             color: #4a5568;
         }
-        /* Musiqa pleyeri uslubi */
-        .audio-controls {
-            text-align: center;
-            margin-top: 15px;
-        }
-        audio {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 30px;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Fon musiqasi (Mayin musiqa) -->
-    <!-- Diqqat: GitHub'ga yuklagan musiqangiz nomini bu yerga aniq yozing. Masalan: musiqa.mp3 -->
-    <audio id="bg-music" loop controls style="display:none;">
-        <source src="Avatar 1.mp4" type="audio/mp4">
-        Brauzeringiz musiqani qo'llab-quvvatlamaydi.
-    </audio>
-
     <header>
         <h1>MuhammadUmar uchun maxsus sahifa</h1>
         <p>Dunyodagi eng aqlli va jasur o'g'lon!</p>
-        <div class="audio-controls">
-            <p style="font-size: 0.9rem; color: #888; margin-bottom: 5px;">🎵 Fon musiqasi chalınmoqda</p>
-        </div>
     </header>
 
     <div class="container">
@@ -118,6 +109,16 @@
         <!-- Albom bo'limi -->
         <div class="section">
             <h2>MuhammadUmarning Albomi</h2>
+            
+            <!-- Video endi eng tepada katta bo'lib turadi -->
+            <div class="main-video-wrapper">
+                <video controls>
+                    <source src="telegram-cloud-document-2-5370764038515431671.mp4" type="video/mp4">
+                    Brauzeringiz videoni qo'llab-quvvatlamaydi.
+                </video>
+            </div>
+
+            <!-- Rasmlar galereyasi pastda -->
             <div class="media-grid">
                 
                 <!-- 1-Rasm -->
@@ -140,13 +141,6 @@
                     <img src="photo_2026-07-19 19.13.29.jpeg" alt="MuhammadUmar">
                 </div>
 
-                <!-- Telegram Video -->
-                <div class="media-item">
-                    <video controls>
-                        <source src="telegram-cloud-document-2-5370764038515431671.mp4" type="video/mp4">
-                    </video>
-                </div>
-
             </div>
         </div>
 
@@ -159,17 +153,6 @@
         </div>
 
     </div>
-
-    <script>
-        // Saytga kirib biror joy bossa, musiqa avtomatik ijro etiladi
-        document.addEventListener('click', function() {
-            var audio = document.getElementById('bg-music');
-            if (audio.paused) {
-                audio.play();
-                audio.volume = 0.4; // Musiqa ovozini mayin (past) qilish (0.0 dan 1.0 gacha)
-            }
-        });
-    </script>
 
 </body>
 </html>
